@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Инструкция к твоему ребёнку — Виктория</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F2EA;
+    --sand: #EDE5D8;
+    --bark: #8B6F4E;
+    --moss: #5C7A5A;
+    --ember: #C4622D;
+    --ink: #2A2218;
+    --mist: #B8C9B5;
+    --water: #4A7FA5;
+    --fire: #C4622D;
+    --earth: #5C7A5A;
+    --wind: #8B9BB4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    background: linear-gradient(160deg, #F7F2EA 0%, #EDE5D8 60%, #DDD0BC 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(92,122,90,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(196,98,45,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .elements-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    font-size: 48px;
+  }
+
+  .element-icon {
+    width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    font-size: 28px;
+    animation: float 3s ease-in-out infinite;
+  }
+  .element-icon:nth-child(2) { animation-delay: 0.5s; }
+  .element-icon:nth-child(3) { animation-delay: 1s; }
+  .element-icon:nth-child(4) { animation-delay: 1.5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bark);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 8vw, 72px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--moss);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--bark);
+    max-width: 440px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+  }
+
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 48px;
+    text-align: left;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .check-dot {
+    width: 20px; height: 20px;
+    background: var(--moss);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .btn-start {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 18px 48px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-start:hover {
+    background: var(--moss);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(92,122,90,0.3);
+  }
+
+  .author-badge {
+    margin-top: 48px;
+    font-size: 12px;
+    color: var(--bark);
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+  }
+
+  /* TEST SCREEN */
+  .test-screen {
+    display: none;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .test-screen.active { display: block; }
+
+  .test-header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .test-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .progress-bar-wrap {
+    flex: 1;
+    height: 2px;
+    background: rgba(255,255,255,0.15);
+    margin: 0 20px;
+    border-radius: 1px;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--mist);
+    border-radius: 1px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-num {
+    font-size: 12px;
+    opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  .question-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+  }
+
+  .test-phase-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .phase-1-badge { background: rgba(74,127,165,0.12); color: var(--water); }
+  .phase-2-badge { background: rgba(139,155,180,0.12); color: var(--wind); }
+
+  .question-num {
+    font-size: 11px;
+    color: var(--bark);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+
+  .question-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .option-btn {
+    background: white;
+    border: 1.5px solid #E8E0D5;
+    padding: 18px 22px;
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    line-height: 1.5;
+  }
+
+  .option-btn:hover {
+    border-color: var(--moss);
+    background: rgba(92,122,90,0.04);
+    transform: translateX(4px);
+  }
+
+  .option-btn.selected {
+    border-color: var(--moss);
+    background: rgba(92,122,90,0.08);
+  }
+
+  .option-letter {
+    width: 28px; height: 28px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    flex-shrink: 0;
+    color: var(--bark);
+    margin-top: 1px;
+  }
+
+  .option-btn.selected .option-letter {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: white;
+  }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .btn-nav {
+    background: none;
+    border: 1.5px solid var(--ink);
+    padding: 12px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+
+  .btn-nav:hover { background: var(--ink); color: var(--cream); }
+  .btn-nav:disabled { opacity: 0.25; pointer-events: none; }
+
+  .btn-nav.primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .btn-nav.primary:hover { background: var(--moss); border-color: var(--moss); }
+
+  /* TRANSITION SCREEN */
+  .transition-screen {
+    display: none;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    background: linear-gradient(160deg, #2A2218 0%, #3D3025 100%);
+    color: var(--cream);
+  }
+
+  .transition-screen.active { display: flex; flex-direction: column; }
+
+  .transition-icon { font-size: 64px; margin-bottom: 32px; }
+
+  .transition-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .transition-sub {
+    font-size: 15px;
+    opacity: 0.65;
+    max-width: 400px;
+    margin: 0 auto 40px;
+  }
+
+  /* RESULT SCREEN */
+  .result-screen {
+    display: none;
+    background: var(--cream);
+  }
+
+  .result-screen.active { display: block; }
+
+  .result-hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .result-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bark);
+    margin-bottom: 16px;
+  }
+
+  .result-main-icon { font-size: 80px; margin-bottom: 24px; display: block; }
+
+  .result-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 60px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .result-subtitle {
+    font-size: 15px;
+    color: var(--bark);
+    margin-bottom: 0;
+  }
+
+  .result-divider {
+    width: 60px;
+    height: 1.5px;
+    background: var(--bark);
+    margin: 32px auto;
+    opacity: 0.3;
+  }
+
+  .result-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bark);
+    opacity: 0.6;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+
+  .section-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4A3F32;
+    margin-bottom: 28px;
+  }
+
+  .traits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .trait-card {
+    background: white;
+    border-radius: 4px;
+    padding: 20px 18px;
+    border-left: 3px solid var(--moss);
+  }
+
+  .trait-card.hard { border-left-color: #C4622D; }
+
+  .trait-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bark);
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+
+  .trait-list {
+    list-style: none;
+    font-size: 13px;
+    line-height: 2;
+    color: var(--ink);
+  }
+
+  .phrases-block {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+
+  .phrases-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  .phrase-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .phrase-item:last-child { border-bottom: none; }
+
+  .phrase-good { color: #A8C5A0; }
+  .phrase-bad { color: #C4622D; text-decoration: line-through; opacity: 0.6; }
+
+  .phrase-icon { flex-shrink: 0; }
+
+  .triggers-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .trigger-tag {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .trigger-tag.avoid { background: rgba(196,98,45,0.1); color: var(--ember); }
+  .trigger-tag.help { background: rgba(92,122,90,0.1); color: var(--moss); }
+
+  /* TEMPERAMENT RESULT */
+  .temp-hero {
+    background: var(--ink);
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--cream);
+    margin-top: 40px;
+  }
+
+  .temp-icon { font-size: 64px; margin-bottom: 20px; display: block; }
+
+  .temp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .temp-sub { font-size: 14px; opacity: 0.55; }
+
+  .superpower-block {
+    background: linear-gradient(135deg, var(--moss) 0%, #4A6B48 100%);
+    border-radius: 4px;
+    padding: 32px;
+    color: white;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .superpower-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+
+  .superpower-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .talents-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .talent-tag {
+    background: white;
+    border: 1px solid #E8E0D5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  /* FINAL */
+  .final-block {
+    background: linear-gradient(160deg, #F7F2EA 0%, #EDE5D8 100%);
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .final-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-text {
+    font-size: 15px;
+    color: var(--bark);
+    max-width: 420px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+  }
+
+  .author-final {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(139,111,78,0.2);
+    font-size: 13px;
+    color: var(--bark);
+    opacity: 0.7;
+  }
+
+  /* SEPARATOR */
+  .section-sep {
+    max-width: 680px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sep-line { flex: 1; height: 1px; background: var(--sand); }
+  .sep-icon { font-size: 18px; opacity: 0.4; }
+
+  @media (max-width: 500px) {
+    .traits-grid { grid-template-columns: 1fr; }
+    .elements-row { gap: 12px; }
+    .element-icon { width: 52px; height: 52px; font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="heroScreen">
+  <div class="elements-row">
+    <div class="element-icon">🌊</div>
+    <div class="element-icon">🔥</div>
+    <div class="element-icon">🌿</div>
+    <div class="element-icon">🌪</div>
+  </div>
+  <div class="hero-eyebrow">Виктория — Психолог для мам</div>
+  <h1 class="hero-title">Инструкция<br>к <em>твоему</em> ребёнку</h1>
+  <p class="hero-sub">Узнай тип личности и темперамент нервной системы своего ребёнка за 10 минут</p>
+  <div class="checklist">
+    <div class="check-item"><div class="check-dot">✓</div> Тест 1: Природный тип личности (Стихии)</div>
+    <div class="check-item"><div class="check-dot">✓</div> Тест 2: Темперамент нервной системы</div>
+    <div class="check-item"><div class="check-dot">✓</div> Полная расшифровка именно твоего ребёнка</div>
+    <div class="check-item"><div class="check-dot">✓</div> Фразы которые работают с его типом</div>
+    <div class="check-item"><div class="check-dot">✓</div> Что помогает и что перегружает</div>
+  </div>
+  <button class="btn-start" onclick="startTest()">Начать тест →</button>
+  <div class="author-badge">@viktoriya.prodetey</div>
+</section>
+
+<!-- TEST 1 SCREEN -->
+<section class="test-screen" id="test1Screen">
+  <div class="test-header">
+    <div class="test-label">Тест 1 — Стихии</div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog1"></div></div>
+    <div class="progress-num" id="progNum1">1 / 15</div>
+  </div>
+  <div class="question-wrap">
+    <div class="test-phase-badge phase-1-badge">🌊 Какая стихия живёт в твоём ребёнке?</div>
+    <div class="question-num" id="qNum1">СИТУАЦИЯ 1</div>
+    <div class="question-text" id="qText1"></div>
+    <div class="options" id="opts1"></div>
+    <div class="nav-row">
+      <button class="btn-nav" id="prevBtn1" onclick="prevQ(1)" disabled>← Назад</button>
+      <button class="btn-nav primary" id="nextBtn1" onclick="nextQ(1)">Далее →</button>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSITION -->
+<section class="transition-screen" id="transitionScreen">
+  <div class="transition-icon">🌿</div>
+  <div class="transition-title">Первый тест пройден</div>
+  <div class="transition-sub">Теперь давай разберёмся, как работает нервная система твоего ребёнка. Это поможет понять его реакции глубже.</div>
+  <button class="btn-start" onclick="startTest2()">Перейти ко второму тесту →</button>
+</section>
+
+<!-- TEST 2 SCREEN -->
+<section class="test-screen" id="test2Screen">
+  <div class="test-header">
+    <div class="test-label">Тест 2 — Темперамент</div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog2"></div></div>
+    <div class="progress-num" id="progNum2">1 / 15</div>
+  </div>
+  <div class="question-wrap">
+    <div class="test-phase-badge phase-2-badge">🌙 Темперамент нервной системы</div>
+    <div class="question-num" id="qNum2">СИТУАЦИЯ 1</div>
+    <div class="question-text" id="qText2"></div>
+    <div class="options" id="opts2"></div>
+    <div class="nav-row">
+      <button class="btn-nav" id="prevBtn2" onclick="prevQ(2)" disabled>← Назад</button>
+      <button class="btn-nav primary" id="nextBtn2" onclick="nextQ(2)">Далее →</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT SCREEN -->
+<section class="result-screen" id="resultScreen">
+  <!-- filled by JS -->
+</section>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────
+
+const q1 = [
+  { text: "Ваш ребёнок играет и что-то ломается.", opts: ["Расстраивается и может заплакать","Злится и может бросить игрушку","Спокойно начинает чинить","Быстро переключается на другую игру"] },
+  { text: "Вы говорите: «Пора идти домой с площадки».", opts: ["Грустит и просит ещё немного времени","Спорит и говорит «нет»","Соглашается, но медленно собирается","Убегает играть дальше"] },
+  { text: "Ваш ребёнок знакомится с новыми детьми.", opts: ["Сначала наблюдает и стесняется","Сразу начинает командовать игрой","Спокойно присоединяется","Быстро бегает от одной группы к другой"] },
+  { text: "Если ребёнок устал.", opts: ["Становится очень чувствительным","Начинает злиться","Становится тихим","Становится гиперактивным"] },
+  { text: "Когда вы объясняете правила.", opts: ["Переживает, если сделал ошибку","Спорит с правилами","Старается понять логику","Отвлекается на что-то другое"] },
+  { text: "Ваш ребёнок проиграл в игре.", opts: ["Сильно расстраивается","Сердится и обвиняет других","Спокойно принимает результат","Говорит «давай играть во что-то другое»"] },
+  { text: "Когда происходит что-то новое (новый кружок, новое место).", opts: ["Переживает и задаёт много вопросов","Ведёт себя смело и сразу идёт вперёд","Сначала внимательно наблюдает","С интересом всё исследует и бегает вокруг"] },
+  { text: "Если ребёнка прерывают во время игры.", opts: ["Расстраивается","Раздражается","Просит закончить начатое","Легко переключается"] },
+  { text: "Как ребёнок чаще всего реагирует на ограничения.", opts: ["Грустит","Протестует","Пытается понять причину","Старается обойти правило"] },
+  { text: "Если ребёнку скучно.", opts: ["Ищет взрослого или поддержку","Начинает шуметь или провоцировать","Находит тихое занятие","Начинает активно двигаться и искать приключения"] },
+  { text: "Как ребёнок обычно реагирует на похвалу.", opts: ["Становится очень счастливым и эмоциональным","Чувствует себя победителем","Спокойно улыбается","Быстро переключается на новое занятие"] },
+  { text: "Когда ребёнок очень увлечён чем-то.", opts: ["Полностью погружается эмоционально","Хочет быть лучшим","Долго и терпеливо занимается","Прыгает от одной идеи к другой"] },
+  { text: "Если что‑то идёт не по плану.", opts: ["Может расстроиться или заплакать","Сердится и пытается всё изменить","Старается спокойно разобраться","Говорит «ну ладно» и ищет что-то другое"] },
+  { text: "Когда ребёнка просят подождать.", opts: ["Становится тревожным","Начинает протестовать","Терпеливо ждёт","Начинает искать другое занятие"] },
+  { text: "Когда ребёнок чем‑то очень гордится.", opts: ["Хочет поделиться чувствами","Хочет показать, что он лучший","Спокойно рассказывает о результате","Быстро переходит к новой идее"] }
+];
+
+const q2 = [
+  { text: "Громкий звук (например, что-то упало).", opts: ["Ребёнок сильно пугается или вздрагивает","Реагирует очень эмоционально","Спокойно смотрит, что произошло","Быстро возвращается к своим делам"] },
+  { text: "После сильных эмоций (радость, слёзы).", opts: ["Долго успокаивается","Сначала бурная реакция, потом постепенно успокаивается","Довольно быстро приходит в норму","Переключается почти сразу"] },
+  { text: "Много людей и шума (праздник, гости).", opts: ["Быстро устаёт","Становится ещё активнее","Ведёт себя спокойно","Легко адаптируется"] },
+  { text: "Ребёнка разбудили раньше обычного.", opts: ["Становится очень чувствительным","Может быть раздражительным","Спокойно просыпается","Быстро включается в день"] },
+  { text: "Резко поменялись планы.", opts: ["Переживает и расстраивается","Может протестовать","Принимает спокойно","Быстро переключается"] },
+  { text: "Ребёнок сильно радуется.", opts: ["Эмоции очень глубокие","Радость очень бурная","Радуется спокойно","Радуется, но быстро переключается"] },
+  { text: "Когда ребёнок устал.", opts: ["Становится чувствительным и капризным","Становится вспыльчивым","Становится тихим","Становится рассеянным"] },
+  { text: "Сложная задача (пазл, конструктор).", opts: ["Переживает, если не получается","Сердится","Спокойно пробует ещё","Может быстро переключиться"] },
+  { text: "Ребёнок расстроился.", opts: ["Ищет утешение","Громко выражает эмоции","Может замолчать","Быстро отвлекается"] },
+  { text: "Новая площадка или новое место.", opts: ["Сначала держится рядом с родителями","Активно исследует","Спокойно наблюдает","Быстро адаптируется"] },
+  { text: "Нужно подождать (например, очередь).", opts: ["Начинает переживать","Раздражается","Терпеливо ждёт","Легко находит себе занятие"] },
+  { text: "Ребёнок упал или ударился.", opts: ["Долго переживает","Реагирует бурно","Быстро успокаивается","Почти сразу забывает"] },
+  { text: "Много новых впечатлений за день.", opts: ["Может быть перегружен","Становится перевозбуждённым","Чувствует себя нормально","Легко справляется"] },
+  { text: "Ребёнок слышит замечание.", opts: ["Может сильно расстроиться","Может начать спорить","Спокойно слушает","Не зацикливается"] },
+  { text: "После активного дня.", opts: ["Ребёнку нужно много времени, чтобы успокоиться","Эмоции ещё долго остаются сильными","Спокойно готовится ко сну","Быстро переключается на отдых"] }
+];
+
+const types = {
+  A: {
+    icon: '🌊', name: 'Вода', color: '#4A7FA5',
+    who: 'Это дети с очень глубокими эмоциями. Они чувствуют мир сильнее, чем многие другие дети. Иногда кажется, что у них эмоции размером с океан.',
+    signs: ['Сильно переживает из-за мелочей', 'Очень привязан к близким', 'Долго помнит обиду', 'Любит уют и спокойствие'],
+    strengths: ['Эмпатия', 'Воображение', 'Доброта', 'Способность дружить глубоко'],
+    hard: ['Быстро раним', 'Тяжело переносит критику', 'Может бояться нового'],
+    crisis: ['Может плакать', 'Закрывается в себе', 'Ищет поддержку взрослого'],
+    avoid: ['Крики', 'Резкие изменения', 'Давление'],
+    helps: ['Спокойный тон', 'Время привыкнуть', 'Много поддержки'],
+    badPhrase: 'Ничего страшного, перестань плакать',
+    goodPhrases: ['Я вижу, что тебе сейчас тяжело. Я рядом.', 'Это нормально — чувствовать грусть.', 'Я здесь, ты в безопасности.'],
+    superpower: 'Когда дети‑Вода чувствуют себя в безопасности, они вырастают невероятно добрыми, творческими и чуткими людьми.'
+  },
+  B: {
+    icon: '🔥', name: 'Огонь', color: '#C4622D',
+    who: 'Если ваш ребёнок может спорить как маленький адвокат — у вас дома Огонь. Это дети с сильной волей и невероятной энергией.',
+    signs: ['Любит руководить играми', 'Часто спорит со взрослыми', 'Хочет делать всё по-своему', 'Очень энергичен'],
+    strengths: ['Лидерство', 'Смелость', 'Энергия', 'Уверенность в себе'],
+    hard: ['Упрямство', 'Вспышки злости', 'Желание контролировать'],
+    crisis: ['Спорит', 'Громко выражает эмоции', 'Может злиться'],
+    avoid: ['Жёсткий контроль', 'Постоянные запреты', 'Борьба за власть'],
+    helps: ['Выбор между двумя вариантами', 'Ощущение самостоятельности', 'Физическая активность'],
+    badPhrase: 'Делай как я сказала, без разговоров',
+    goodPhrases: ['Ты можешь выбрать: красную или синюю?', 'Я вижу, что ты сейчас очень злишься.', 'Давай решим это вместе.'],
+    superpower: 'Когда силу детей‑Огонь направляют, а не подавляют, они вырастают уверенными и сильными лидерами.'
+  },
+  C: {
+    icon: '🌿', name: 'Земля', color: '#5C7A5A',
+    who: 'Это дети‑наблюдатели. Они любят понимать, как всё работает. Спокойные, вдумчивые, надёжные.',
+    signs: ['Любит рассматривать детали', 'Задаёт много «почему»', 'Предпочитает спокойные игры', 'Любит порядок'],
+    strengths: ['Терпение', 'Концентрация', 'Аккуратность', 'Глубокое мышление'],
+    hard: ['Может быть медленным', 'Тяжело переключается', 'Не любит спешку'],
+    crisis: ['Замолкает', 'Уходит в себя', 'Пытается разобраться'],
+    avoid: ['Спешка', 'Хаос', 'Резкие изменения планов'],
+    helps: ['Объяснение причин', 'Время на подготовку', 'Стабильный распорядок'],
+    badPhrase: 'Давай быстрее, мы опаздываем!',
+    goodPhrases: ['Давай сделаем это шаг за шагом.', 'Сейчас будет происходить вот что…', 'Не спеши, у тебя есть время.'],
+    superpower: 'Дети‑Земля часто вырастают людьми с сильной концентрацией, хорошим мышлением и упорством, если им позволять жить в своём темпе.'
+  },
+  D: {
+    icon: '🌪', name: 'Ветер', color: '#8B9BB4',
+    who: 'Это маленькие исследователи мира. Их мозг постоянно говорит: «О, смотри! А что это?» Они живут в моменте.',
+    signs: ['Постоянно в движении', 'Быстро загорается новыми идеями', 'Легко отвлекается', 'Любит приключения'],
+    strengths: ['Креативность', 'Энергия', 'Любопытство', 'Лёгкость в общении'],
+    hard: ['Легко отвлекается', 'Может не доводить дела до конца', 'Сложно концентрироваться'],
+    crisis: ['Начинает бегать или суетиться', 'Ищет новое занятие', 'Может игнорировать правила'],
+    avoid: ['Долгие объяснения', 'Скука', 'Однообразие'],
+    helps: ['Игровая форма заданий', 'Движение', 'Короткие инструкции'],
+    badPhrase: 'Сиди спокойно и слушай!',
+    goodPhrases: ['Давай сделаем это как игру.', 'Сможешь сделать это быстрее таймера?', 'Покажи, как быстро ты справишься!'],
+    superpower: 'Дети‑Ветер часто вырастают людьми с нестандартным мышлением, большим воображением и яркими идеями.'
+  }
+};
+
+const temps = {
+  A: {
+    icon: '🌙', name: 'Лунный темперамент', color: '#6B7FA5',
+    desc: 'Высокая чувствительность нервной системы',
+    who: 'Такие дети очень чувствительны, глубоко переживают эмоции и могут долго успокаиваться. Это дети с очень тонкой нервной системой.',
+    triggers: ['Громкие звуки', 'Резкие слова', 'Перегруженные места', 'Усталость'],
+    helps: ['Мягкий голос', 'Больше поддержки', 'Заранее предупреждать о переменах', 'Тихая обстановка'],
+    phrases: ['Я вижу, что тебя это сильно расстроило.', 'Это нормально — чувствовать грусть.', 'Я рядом с тобой.'],
+    avoid_phrases: ['Перестань плакать', 'Не выдумывай', 'Ты слишком чувствительный'],
+    talents: ['Творчество', 'Эмпатия', 'Искусство', 'Наблюдательность', 'Глубокое мышление'],
+    superpower: 'Эмоциональная безопасность. Когда дети с Лунным темпераментом чувствуют себя в безопасности, они вырастают невероятно добрыми, творческими и чуткими людьми.'
+  },
+  B: {
+    icon: '⚡', name: 'Искровой темперамент', color: '#C4622D',
+    desc: 'Быстрые и сильные реакции нервной системы',
+    who: 'Такие дети реагируют мгновенно, эмоции у них яркие, они могут быстро «загораться». Но так же быстро могут остывать.',
+    triggers: ['Жёсткий контроль', 'Запреты без объяснения', 'Борьба за власть', 'Усталость'],
+    helps: ['Давать выбор', 'Признавать эмоции', 'Сохранять спокойствие', 'Физическая активность'],
+    phrases: ['Ты можешь выбрать это или это.', 'Я вижу, что ты сейчас очень злишься.', 'Давай решим это вместе.'],
+    avoid_phrases: ['Немедленно успокойся!', 'Прекрати истерику', 'Ты ведёшь себя ужасно'],
+    talents: ['Лидерство', 'Спорт', 'Выступления', 'Инициативность', 'Уверенность'],
+    superpower: 'Уважение + чёткие границы. Когда энергию детей с Искровым темпераментом направляют, они вырастают уверенными лидерами.'
+  },
+  C: {
+    icon: '🌳', name: 'Глубокий темперамент', color: '#5C7A5A',
+    desc: 'Стабильная нервная система',
+    who: 'Такие дети реагируют спокойно, редко перегружаются и любят стабильность. Они часто кажутся очень уравновешенными.',
+    triggers: ['Хаос', 'Резкие изменения', 'Спешка', 'Непредсказуемость'],
+    helps: ['Спокойно объяснять', 'Давать время', 'Сохранять структуру', 'Предсказуемый порядок'],
+    phrases: ['Давай сделаем это шаг за шагом.', 'Сейчас будет происходить вот что.', 'Не спеши, у тебя есть время.'],
+    avoid_phrases: ['Быстрее!', 'Ну что ты копаешься', 'Уже пора было закончить'],
+    talents: ['Концентрация', 'Логика', 'Исследования', 'Настойчивость', 'Глубокое мышление'],
+    superpower: 'Терпение. Дети с Глубоким темпераментом часто вырастают людьми с сильной концентрацией и упорством.'
+  },
+  D: {
+    icon: '🌈', name: 'Гибкий темперамент', color: '#8B9BB4',
+    desc: 'Лёгкая адаптация нервной системы',
+    who: 'Такие дети быстро адаптируются, легко переключаются и редко застревают в эмоциях. Это дети с очень гибкой нервной системой.',
+    triggers: ['Скука', 'Однообразие', 'Отсутствие стимуляции', 'Слишком долгое ожидание'],
+    helps: ['Через игру', 'Через интерес', 'Через движение', 'Короткие задачи'],
+    phrases: ['Давай сделаем это как игру.', 'Сможешь сделать быстрее таймера?', 'Покажи как быстро ты справишься!'],
+    avoid_phrases: ['Сиди и жди', 'Не отвлекайся', 'Займись чем-нибудь тихим'],
+    talents: ['Креативность', 'Коммуникация', 'Быстрый ум', 'Гибкость мышления', 'Адаптивность'],
+    superpower: 'Креативность. Дети с Гибким темпераментом часто вырастают людьми с нестандартным мышлением и большим воображением.'
+  }
+};
+
+// ─── STATE ──────────────────────────────────────────────
+let a1 = new Array(15).fill(null);
+let a2 = new Array(15).fill(null);
+let cur1 = 0, cur2 = 0;
+
+// ─── RENDER ─────────────────────────────────────────────
+function renderQ(testNum, idx) {
+  const q = testNum === 1 ? q1 : q2;
+  const answers = testNum === 1 ? a1 : a2;
+  const letters = ['А','Б','В','Г'];
+  const keys = ['A','B','C','D'];
+
+  document.getElementById(`qNum${testNum}`).textContent = `СИТУАЦИЯ ${idx+1}`;
+  document.getElementById(`qText${testNum}`).textContent = q[idx].text;
+
+  const optsEl = document.getElementById(`opts${testNum}`);
+  optsEl.innerHTML = '';
+  q[idx].opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn' + (answers[idx] === keys[i] ? ' selected' : '');
+    btn.innerHTML = `<span class="option-letter">${letters[i]}</span><span>${opt}</span>`;
+    btn.onclick = () => selectOpt(testNum, idx, keys[i]);
+    optsEl.appendChild(btn);
+  });
+
+  const total = 15;
+  document.getElementById(`prog${testNum}`).style.width = `${((idx+1)/total)*100}%`;
+  document.getElementById(`progNum${testNum}`).textContent = `${idx+1} / ${total}`;
+  document.getElementById(`prevBtn${testNum}`).disabled = idx === 0;
+}
+
+function selectOpt(testNum, idx, key) {
+  if (testNum === 1) a1[idx] = key; else a2[idx] = key;
+  renderQ(testNum, idx);
+  setTimeout(() => {
+    if (testNum === 1) nextQ(1); else nextQ(2);
+  }, 250);
+}
+
+function nextQ(testNum) {
+  const cur = testNum === 1 ? cur1 : cur2;
+  const answers = testNum === 1 ? a1 : a2;
+  if (answers[cur] === null) { shakeCurrent(testNum); return; }
+  if (cur < 14) {
+    if (testNum === 1) { cur1++; renderQ(1, cur1); }
+    else { cur2++; renderQ(2, cur2); }
+  } else {
+    if (testNum === 1) showTransition();
+    else showResult();
+  }
+}
+
+function prevQ(testNum) {
+  if (testNum === 1 && cur1 > 0) { cur1--; renderQ(1, cur1); }
+  if (testNum === 2 && cur2 > 0) { cur2--; renderQ(2, cur2); }
+}
+
+function shakeCurrent(testNum) {
+  const el = document.getElementById(`qText${testNum}`);
+  el.style.color = '#C4622D';
+  setTimeout(() => el.style.color = '', 600);
+}
+
+// ─── FLOW ────────────────────────────────────────────────
+function startTest() {
+  document.getElementById('heroScreen').style.display = 'none';
+  document.getElementById('test1Screen').classList.add('active');
+  renderQ(1, 0);
+  window.scrollTo(0,0);
+}
+
+function showTransition() {
+  document.getElementById('test1Screen').classList.remove('active');
+  document.getElementById('transitionScreen').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function startTest2() {
+  document.getElementById('transitionScreen').classList.remove('active');
+  document.getElementById('test2Screen').classList.add('active');
+  renderQ(2, 0);
+  window.scrollTo(0,0);
+}
+
+// ─── SCORING ─────────────────────────────────────────────
+function score(answers) {
+  const counts = {A:0,B:0,C:0,D:0};
+  answers.forEach(a => { if(a) counts[a]++; });
+  return Object.entries(counts).sort((x,y)=>y[1]-x[1])[0][0];
+}
+
+// ─── RESULT ──────────────────────────────────────────────
+function showResult() {
+  document.getElementById('test2Screen').classList.remove('active');
+  const t = types[score(a1)];
+  const tm = temps[score(a2)];
+  const rs = document.getElementById('resultScreen');
+  rs.classList.add('active');
+
+  rs.innerHTML = `
+    <!-- TYPE RESULT -->
+    <div class="result-hero" style="background: linear-gradient(160deg, ${t.color}15 0%, var(--cream) 60%);">
+      <div class="result-eyebrow">Тип личности твоего ребёнка</div>
+      <span class="result-main-icon">${t.icon}</span>
+      <h1 class="result-title" style="color:${t.color}">Ребёнок ${t.name}</h1>
+      <p class="result-subtitle">${t.who}</p>
+      <div class="result-divider"></div>
+    </div>
+
+    <div class="result-section">
+      <div class="section-eyebrow">Узнаёте своего ребёнка?</div>
+      <div class="section-title">Признаки типа ${t.name}</div>
+      <ul class="trait-list" style="margin-bottom:32px">
+        ${t.signs.map(s=>`<li>• ${s}</li>`).join('')}
+      </ul>
+
+      <div class="traits-grid">
+        <div class="trait-card">
+          <div class="trait-label">Сильные стороны</div>
+          <ul class="trait-list">${t.strengths.map(s=>`<li>✦ ${s}</li>`).join('')}</ul>
+        </div>
+        <div class="trait-card hard">
+          <div class="trait-label">Сложности</div>
+          <ul class="trait-list">${t.hard.map(s=>`<li>◦ ${s}</li>`).join('')}</ul>
+        </div>
+      </div>
+
+      <div class="section-title">Как ведёт себя в трудные моменты</div>
+      <ul class="trait-list" style="margin-bottom:32px">
+        ${t.crisis.map(s=>`<li>• ${s}</li>`).join('')}
+      </ul>
+
+      <div class="section-eyebrow">Что влияет на ребёнка</div>
+      <div style="margin-bottom:12px; font-size:13px; color:var(--bark)">Что перегружает:</div>
+      <div class="triggers-row">${t.avoid.map(s=>`<span class="trigger-tag avoid">✗ ${s}</span>`).join('')}</div>
+      <div style="margin-bottom:12px; font-size:13px; color:var(--bark)">Что помогает:</div>
+      <div class="triggers-row" style="margin-bottom:40px">${t.helps.map(s=>`<span class="trigger-tag help">✓ ${s}</span>`).join('')}</div>
+
+      <div class="phrases-block">
+        <div class="phrases-title">Фразы которые работают с типом ${t.name}</div>
+        <div class="phrase-item">
+          <span class="phrase-icon">✗</span>
+          <span class="phrase-bad">${t.badPhrase}</span>
+        </div>
+        ${t.goodPhrases.map(p=>`
+        <div class="phrase-item">
+          <span class="phrase-icon phrase-good">✓</span>
+          <span class="phrase-good">${p}</span>
+        </div>`).join('')}
+      </div>
+
+      <div class="superpower-block">
+        <div class="superpower-label">Родительская суперсила</div>
+        <div class="superpower-text">${t.superpower}</div>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="section-sep"><div class="sep-line"></div><span class="sep-icon">🌿</span><div class="sep-line"></div></div>
+
+    <!-- TEMPERAMENT RESULT -->
+    <div class="temp-hero">
+      <span class="temp-icon">${tm.icon}</span>
+      <div class="temp-title">${tm.name}</div>
+      <div class="temp-sub">${tm.desc}</div>
+    </div>
+
+    <div class="result-section" style="padding-top:48px">
+      <div class="section-eyebrow">Темперамент нервной системы</div>
+      <div class="section-title">Как работает нервная система</div>
+      <p class="section-text">${tm.who}</p>
+
+      <div style="margin-bottom:12px; font-size:13px; color:var(--bark)">Что может триггерить:</div>
+      <div class="triggers-row">${tm.triggers.map(s=>`<span class="trigger-tag avoid">✗ ${s}</span>`).join('')}</div>
+      <div style="margin-bottom:12px; font-size:13px; color:var(--bark)">Что помогает:</div>
+      <div class="triggers-row" style="margin-bottom:40px">${tm.helps.map(s=>`<span class="trigger-tag help">✓ ${s}</span>`).join('')}</div>
+
+      <div class="phrases-block">
+        <div class="phrases-title">Как говорить с ребёнком</div>
+        ${tm.phrases.map(p=>`
+        <div class="phrase-item">
+          <span class="phrase-icon phrase-good">✓</span>
+          <span class="phrase-good">${p}</span>
+        </div>`).join('')}
+        ${tm.avoid_phrases.map(p=>`
+        <div class="phrase-item">
+          <span class="phrase-icon">✗</span>
+          <span class="phrase-bad">${p}</span>
+        </div>`).join('')}
+      </div>
+
+      <div class="section-eyebrow" style="margin-top:8px">Потенциал твоего ребёнка</div>
+      <div class="section-title">Таланты</div>
+      <div class="talents-list">${tm.talents.map(t=>`<span class="talent-tag">✦ ${t}</span>`).join('')}</div>
+
+      <div class="superpower-block">
+        <div class="superpower-label">Родительская суперсила</div>
+        <div class="superpower-text">${tm.superpower}</div>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="final-block">
+      <h2 class="final-title">Твой ребёнок не «сложный».<br>Он просто <em style="font-style:italic;color:var(--moss)">другой тип природы.</em></h2>
+      <p class="final-text">Когда родители начинают работать вместе с природой ребёнка, а не против неё — поведение меняется удивительно быстро.</p>
+      <div class="author-final">
+        Виктория | Психолог для мам<br>
+        <a href="https://instagram.com/viktoriya.prodetey" style="color:var(--bark)">@viktoriya.prodetey</a>
+      </div>
+    </div>
+  `;
+
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
